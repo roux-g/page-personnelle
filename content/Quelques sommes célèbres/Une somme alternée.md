@@ -4,12 +4,12 @@ ordre: 20
 $$
 1-\dfrac{1}{2}+\dfrac{1}{3}-\dfrac{1}{4}+\ldots = \ln(2), \qquad \text{i.e.} \qquad \sum_{k=1}^{+\infty} \dfrac{(-1)^{k-1}}{k} = \ln(2)
 $$
-> [!thm] 
+> [!thm] Théorème
 > $$
 > \sum_{k=1}^{n} \dfrac{(-1)^{k-1}}{k} \underset{n\to +\infty}{\longrightarrow} \ln(2)
 > $$
 
-> [!dem]-
+> [!dem]- Démonstration
 > Il est parfois utile, en maths, de réaliser que le problème que l'on étude n'est en fait qu'un cas particulier d'un problème certes plus général, mais plus facile à étudier. Ici, par exemple, au lieu de s'intéresser seulement à la somme mentionnée dans le théorème ci-dessus, on va élargir nos ambitions et considérer plutôt la **fonction** $f_n$ définie par :
 > $$
 > f_n(x)=\sum_{k=1}^{n} \dfrac{(-1)^{k-1}}{k}x^k.
