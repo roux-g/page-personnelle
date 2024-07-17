@@ -10,7 +10,8 @@ import { i18n } from "../i18n"
 
 // Options interface defined in `ExplorerNode` to avoid circular dependency
 const defaultOptions = {
-  folderClickBehavior: "collapse",
+  // folderClickBehavior: "collapse",
+  folderClickBehavior: "link",
   folderDefaultState: "collapsed",
   useSavedState: true,
   mapFn: (node) => {
@@ -19,6 +20,21 @@ const defaultOptions = {
   sortFn: (a, b) => {
     // Sort order: folders first, then files. Sort folders and files alphabetically
     if ((!a.file && !b.file) || (a.file && b.file)) {
+
+      let orderA = 9999
+      let orderB = 9999
+
+      // Si les deux fichiers possèdent une propriété "ordre", les classer par ordre croissant de cette propriété. Les fichiers sans propriété "ordre" sont placés en fin de liste, par ordre alphabétique.
+      if (a.file && a.file.frontmatter && a.file.frontmatter.ordre) {
+        orderA = a.file.frontmatter.ordre
+      }
+      if (b.file && b.file.frontmatter && b.file.frontmatter.ordre) {
+        orderB = b.file.frontmatter.ordre
+      }
+      if ((a.file && a.file.frontmatter && a.file.frontmatter.ordre) || (b.file && b.file.frontmatter && b.file.frontmatter.ordre)) {
+        return orderA - orderB
+      }
+
       // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
       // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
       return a.displayName.localeCompare(b.displayName, undefined, {
@@ -33,6 +49,24 @@ const defaultOptions = {
       return -1
     }
   },
+  // VERSION ORIGINALE
+  // sortFn: (a, b) => {
+  //   // Sort order: folders first, then files. Sort folders and files alphabetically
+  //   if ((!a.file && !b.file) || (a.file && b.file)) {
+  //     // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
+  //     // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
+  //     return a.displayName.localeCompare(b.displayName, undefined, {
+  //       numeric: true,
+  //       sensitivity: "base",
+  //     })
+  //   }
+
+  //   if (a.file && !b.file) {
+  //     return 1
+  //   } else {
+  //     return -1
+  //   }
+  // },
   filterFn: (node) => node.name !== "tags",
   order: ["filter", "map", "sort"],
 } satisfies Options
