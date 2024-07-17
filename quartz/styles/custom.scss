@@ -228,11 +228,11 @@ a {
     margin-left: auto;
     margin-right: auto;
     background-color: var(--light);
-    padding: 0 4rem;
+    // padding: 0 4rem;
     width: $pageWidth;
     @media all and (max-width: $fullPageWidth) {
       width: initial;
-      padding: 0;
+      // padding: 0;
       margin-left: 0;
       margin-right: 0;
     }
