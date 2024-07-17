@@ -174,7 +174,7 @@ a {
       width: $sidePanelWidth;
       margin-top: $topSpacing;
       box-sizing: border-box;
-      padding: 0 4rem;
+      padding: 0 1.5rem;
       position: fixed;
       @media all and (max-width: $fullPageWidth) {
         position: initial;
@@ -228,7 +228,7 @@ a {
     margin-left: auto;
     margin-right: auto;
     background-color: var(--light);
-    // padding: 0 4rem;
+    padding: 0 4rem;
     width: $pageWidth;
     @media all and (max-width: $fullPageWidth) {
       width: initial;
@@ -548,4 +548,14 @@ ol.overflow {
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.callout {
+  &[data-callout="dem"] {
+    --color:  rgba(102, 0, 255, 0.6) ;
+    --border: rgba(102, 0, 255, 0.6);
+    --bg: rgba(227, 209, 255, 0.6);
+    --callout-icon: ;
+    // --callout-icon: url("data:image/svg+xml; utf8, <custom formatted svg>"); //SVG icon code
+  }
 }
