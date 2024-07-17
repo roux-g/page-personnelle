@@ -232,6 +232,7 @@ a {
     width: $pageWidth;
     @media all and (max-width: $fullPageWidth) {
       width: initial;
+      padding: 0;
       margin-left: 0;
       margin-right: 0;
     }
