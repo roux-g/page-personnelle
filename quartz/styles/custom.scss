@@ -129,7 +129,7 @@ a {
   @media all and (max-width: $fullPageWidth) {
     margin: 0 auto;
     // padding: 0 1rem;
-    padding: 0;
+    padding: 0 0rem;
     max-width: $pageWidth;
   }
 
