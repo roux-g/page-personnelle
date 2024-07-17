@@ -23,3 +23,6 @@ $$
 > $$
 > 
 
+> [!def] Définition
+> Ceci est un essai de définition.
+
