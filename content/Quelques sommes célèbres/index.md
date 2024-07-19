@@ -3,7 +3,7 @@ title: Quelques sommes célèbres
 ---
 Les Mathématiques regorgent de magnifiques formules de sommes infinies. Voici les plus fameuses d'entre elles ! Suivez les liens pour en savoir plus sur chacune.
 
-### [[Une somme alternée|Somme alternée des inverses d'entiers]]
+### [[Série harmonique alternée|Somme alternée des inverses d'entiers]]
 $$
 \boxed{1-\dfrac{1}{2}+\dfrac{1}{3}-\dfrac{1}{4}+\ldots = \ln(2)}
 $$

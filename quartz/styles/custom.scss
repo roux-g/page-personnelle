@@ -2,6 +2,8 @@
 @use "./syntax.scss";
 @use "./callouts.scss";
 
+$fullPageWidth: $pageWidth + 1.4 * $sidePanelWidth;
+
 html {
   scroll-behavior: smooth;
   text-size-adjust: none;
@@ -14,11 +16,11 @@ section {
   margin: 0;
   max-width: 100%;
   box-sizing: border-box;
-  background-image: url('background1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  // background-color: var(--lightgray);
+  // background-image: url('background1.jpg');
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  background-color: var(--lightgray);
   font-family: var(--bodyFont);
   color: var(--darkgray);
 }
@@ -171,10 +173,10 @@ a {
       flex-direction: column;
       gap: 2rem;
       top: 0;
-      width: $sidePanelWidth;
+      // width: $sidePanelWidth;
+      width: calc($sidePanelWidth - 4.5rem) ;
       margin-top: $topSpacing;
       box-sizing: border-box;
-      padding: 0 1.5rem;
       position: fixed;
       @media all and (max-width: $fullPageWidth) {
         position: initial;
@@ -186,7 +188,11 @@ a {
     }
 
     & .sidebar.left {
-      left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
+      // left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
+      @media all and (min-width: $fullPageWidth) {
+        padding: 0 1.5rem;
+        left: 0.6em;
+      }
       @media all and (max-width: $fullPageWidth) {
         gap: 0;
         align-items: center;
@@ -194,7 +200,15 @@ a {
     }
 
     & .sidebar.right {
-      right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
+      width: calc($sidePanelWidth - 6rem) ;
+      // margin-right : 1em;
+      // padding: 0 4rem;
+      // right: -2em;
+      @media all and (min-width: $fullPageWidth) {
+        padding: 0 1.5rem;
+        right: 0.6em;
+      }
+      // right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth - 2.5rem);
       flex-wrap: wrap;
       & > * {
         @media all and (max-width: $fullPageWidth) {
@@ -207,7 +221,8 @@ a {
 
   & .page-header,
   & .page-footer {
-    width: $pageWidth;
+    width: calc(100vw - 2 * $sidePanelWidth);
+    // width: $pageWidth;
     background-color: var(--light);
     margin-top: 1rem;
 
@@ -228,13 +243,14 @@ a {
     margin-left: auto;
     margin-right: auto;
     background-color: var(--light);
-    width: $pageWidth;
+    width: calc(100vw - 2 * $sidePanelWidth);
+    // width: $pageWidth;
     @media all and (max-width: $fullPageWidth) {
       width: initial;
       margin-left: 0;
       margin-right: 0;
     };
-    @media all and (min-width: $fullPageWidth + 1) {
+    @media all and (min-width: $pageWidth) {
       padding: 0 4rem;
     }
   }

@@ -13,6 +13,7 @@ const defaultOptions = {
   // folderClickBehavior: "collapse",
   folderClickBehavior: "link",
   folderDefaultState: "collapsed",
+  // folderDefaultState: "open",
   useSavedState: true,
   mapFn: (node) => {
     return node
