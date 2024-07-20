@@ -69,20 +69,20 @@ $$
 > On peut vérifier cela par un rapide encadrement, en majorant cette intégrale en valeur absolue par une quantité tendant vers 0 :
 > $$
 > \begin{align*}
-> \left| \int_0^1 \dfrac{(-x)^n}{1+x} \, dx \right | &\leq \int_0^1 \left|\dfrac{(-x)^n}{1+x}\right| \, dx \\
+> \left| \int_0^1 \dfrac{(-x)^n}{1+x} \, dx \right | &\leq \int_0^1 \left|\dfrac{(-x)^n}{1+x}\right| \, dx  \quad \text{par inégalité triangulaire} \\
 > &= \int_0^1 \dfrac{|-x|^n}{1+x} \, dx \\
 > & = \int_0^1 \dfrac{x^n}{1+x} \, dx \\
 > & \leq \int_0^1 x^n \, dx \quad \text{car pour }x\in [0,1], \  1+x\geq 1 \text{ donc }\dfrac{x^n}{1+x} \leq x^n  \\
 > &= \left[  \frac{x^{n+1}}{n+1}  \right]_0^1 = \frac{1}{n+1}.
 > \end{align*}
 > $$
-> Puisque $\frac{1}{n+1}\ \underset{n\to +\infty}{\longrightarrow} \ 0$, on en déduit par encadrement que l'intégrale encadrée tend vers 0 également. CQFD.
+> Puisque $\frac{1}{n+1}\ \underset{n\to +\infty}{\longrightarrow} \ 0$, on en déduit par encadrement que l'intégrale encadrée tend vers 0 également.
 
 Et ainsi, en combinant cela avec le lemme prouvé plus haut, on a démontré que :
 $$
 \sum_{k=1}^{n} \dfrac{(-1)^{k-1}}{k} = \ln(2) -  \int_{0}^1 \dfrac{(-x)^n}{1+x} \, dx. \ \underset{n\to +\infty}{\longrightarrow} \  \ln(2)
 $$
-CQFD.
+CQFD !
 ## Et si l'on changeait l'ordre des termes ?
 
 La somme que l'on vient d'étudier est d'un genre assez particulier : si elle tend vers une valeur finie, c'est parce que les termes positifs et les négatifs se "compensent les uns les autres". Sans cette alternance des signes, elle tendrait en fait vers $+\infty$ :
