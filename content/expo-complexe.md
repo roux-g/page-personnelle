@@ -1,5 +1,7 @@
 ---
 draft: true
+title: Autour de l'exponentielle complexe
+prérequis: Complexes
 ---
 
 

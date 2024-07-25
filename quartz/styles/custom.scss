@@ -21,6 +21,10 @@ section {
   // background-position: center;
   // background-repeat: no-repeat;
   background-color: var(--lightgray);
+  @media all and (max-width: $fullPageWidth) {
+    background-color: var(--light);
+  }
+  // background-color: rgb(244, 244, 244);
   font-family: var(--bodyFont);
   color: var(--darkgray);
 }
@@ -132,7 +136,7 @@ a {
     margin: 0 auto;
     // padding: 0 1rem;
     padding: 0 0rem;
-    max-width: $pageWidth;
+    max-width: 1.3*$pageWidth;
   }
 
   & article {

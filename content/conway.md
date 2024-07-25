@@ -1,5 +1,6 @@
 ---
 draft: true
+title: Jeu de la vie et automates cellulaires
 ---
 Liens :
 - Deux vidéos de ScienceEtonnante :

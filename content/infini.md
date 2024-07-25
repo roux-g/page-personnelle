@@ -1,3 +1,7 @@
+---
+title: Compter l'infini
+prérequis: Bijections, injections, surjections
+---
 ## Prologue : l'hôtel de Hilbert
 
 Dans les conférences qu'il donnait sur le sujet de l'infini au début du XXe siècle, David Hilbert aimait illustrer ses propos par une amusante - et un peu perturbante - expérience de pensée que la postérité a retenu sous le nom d'*hôtel de Hilbert*. En voici une présentation un peu romancée.
@@ -14,10 +18,12 @@ L'histoire de l'hôtel de Hilbert possède plusieurs variantes, posant des [déf
 - Une vidéo d'[El Jj](https://www.youtube.com/watch?v=N_cDA6tF-40)
 
 Cette histoire, loin d'être une simple anecdote amusante, touche en fait à un phénomène caractéristique des ensembles infinis, et la technique qu'elle illustre est une idée qui intervient dans de nombreuses preuves mathématiques. Dans la suite de cette page, on va présenter deux résultats dont la démonstration repose fondamentalement sur la belle idée de notre concierge :
-- une [[Compter l'infini#^eb987a|caractérisation des ensembles infinis]] ;
-- et le [[Compter l'infini#^16752a|théorème de Cantor-Bernstein]].
+- une caractérisation des ensembles infinis ; [[infini#^eb987a]]
+- et le théorème de Cantor-Bernstein. [[infini#^16752a]]
+
 
 Cela sera aussi l'occasion de définir plus rigoureusement ce que l'on entend par "ensemble infini", et de voir que tous les ensembles infinis ne sont pas forcément de la même taille ...
+
 ## Premiers pas : cardinal d'un ensemble
 
 On appelle *cardinal* d'un ensemble le nombre d'éléments de cet ensemble. Bien que ce concept se comprenne très bien à un niveau intuitif, la définition rigoureuse de ce que l'on entend par "nombre d'éléments" est cependant plus délicate à appréhender.
@@ -122,6 +128,8 @@ Dans ces deux exemples, on observe un phénomène intrigant : on a construit à 
 
 ## Quand un infini est plus petit qu'un autre
 
+
+
 A l'aide du concept de bijection, on s'est donné un moyen de déterminer si un ensemble infini est de la "même taille" qu'un autre. Mais peut-on affiner les choses ? Peut-on comparer les ensembles infinis les uns aux autres, en d'autres termes, est-il possible de donner un sens au fait qu'un ensemble infini soit "plus petit" qu'un autre ?
 
 Comme précédemment, on va commencer par s'appuyer sur ce que l'on connait (et comprend) bien : le cas des ensembles finis. Pour ces ensembles là, les choses sont plus simples, et l'on dispose du résultat classique et assez intuitif suivant.
@@ -142,11 +150,12 @@ On va en profiter pour refaire le même coup que dans la partie précédente, en
 En effet, on peut considérer $f$ l'application qui à chaque réel de $[0,1[$ associe la suite de ses décimales (où l'on convient, pour éviter de toute ambiguïté, de ne jamais écrire une développement décimal finissant en "99999..." : par exemple, au nombre 0,35, on associera la suite 3, 5, 0, 0, 0, etc., et non la suite 3, 4, 9, 9, 9, 9, ...). Puisque la suite des décimales d'un réel de $[0,1[$ caractérise complètement ce réel, l'application $f$ ainsi définie est injective.
 
 
-On s'est ainsi doté d'une définition permettant de comparer les cardinaux d'ensembles infinis. Notons au passage que cette définition est cohérente avec [[Compter l'infini#^6f430a|la définition donnée plus tôt pour l'égalité entre cardinaux]] : si l'on a simultanément $Card(A)\leq Card(B)$ et $Card(B)\leq Card(A)$, cela signifie qu'il existe une injection de $A$ dans $B$ et une injection de $B$ dans $A$, et donc que, euh ... un instant ...
+On s'est ainsi doté d'une définition permettant de comparer les cardinaux d'ensembles infinis. Notons au passage que cette définition est cohérente avec [[infini#^6f430a|la définition donnée plus tôt]] pour l'égalité entre cardinaux : si l'on a simultanément $Card(A)\leq Card(B)$ et $Card(B)\leq Card(A)$, cela signifie qu'il existe une injection de $A$ dans $B$ et une injection de $B$ dans $A$, et donc que, euh ... un instant ...
 
 Il y a un souci : on voudrait pouvoir en déduire qu'il existe une bijection entre $A$ et $B$, et donc que $Card(A)=Card(B)$  ; mais soudain cela ne semble pas si évident ...
 
 On a en fait mis le doigt sur un point pas du tout trivial pour les ensembles infinis : le fait que l'existence d'une injection dans les deux sens implique l'existence d'une bijection. Il va falloir le démontrer si l'on veut que notre théorie tienne debout !
+
 
 > [!thm] Théorème de Cantor-Bernstein
 > Soient $A$ et $B$ deux ensembles.
@@ -166,7 +175,7 @@ On a en fait mis le doigt sur un point pas du tout trivial pour les ensembles in
 > x & \mapsto & g(x)
 > \end{array}
 > $$
-> (bien injective car $g$ l'est, et surjective par définition de $C$)  
+> (bien injective car $g$ l'est, et surjective par définition de $C$)
 > Par conséquent, puisqu'une composée de bijections est encore une bijection :
 > $$
 > \begin{array}{c}
@@ -174,7 +183,7 @@ On a en fait mis le doigt sur un point pas du tout trivial pour les ensembles in
 > \text{c'est équivalent à montrer qu'il existe une bijection entre $A$ et $C$.}  
 > \end{array}
 > $$
-> **On s'est donc ramené à devoir montrer que $A$ est en bijection avec une certaine partie $C$ de lui-même** (ce qui n'est pas sans rappeler un certain [[Compter l'infini#^eb987a|théorème vu plus haut]] ...).  
+> **On s'est donc ramené à devoir montrer que $A$ est en bijection avec une certaine partie $C$ de lui-même** (ce qui n'est pas sans rappeler un certain [[infini#^eb987a|théorème vu plus haut]] ...).  
 > Reste à voir ce que deviennent nos hypothèses de départ avec ce changement de point de vue : en posant $h=g\circ f$, on obtient une fonction $h:A \to C$, qui est injective puisque $f$ et $g$ le sont. C'est tout ce dont on va avoir besoin pour conclure.
 > 
 > **2nde étape : construire la bijection**  

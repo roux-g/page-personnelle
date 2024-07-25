@@ -1,5 +1,6 @@
 ---
 ordre: 40
+title: Une première série de Riemann
 ---
 $$
 1+\dfrac{1}{4}+\dfrac{1}{9}+\dfrac{1}{16}+\ldots = \dfrac{\pi^2}{6}

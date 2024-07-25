@@ -1,6 +1,7 @@
 ---
 ordre: 20
 prérequis: Intégration
+title: La série harmonique alternée
 ---
 On appelle *série harmonique alternée* :
 $$

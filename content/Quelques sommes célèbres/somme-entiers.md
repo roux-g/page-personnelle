@@ -1,5 +1,6 @@
 ---
 ordre: 50
+title: Une seconde série de Riemann
 ---
 $$
 1+2+3+4+\ldots = -\dfrac{1}{12}
