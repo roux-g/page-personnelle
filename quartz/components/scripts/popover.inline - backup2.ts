@@ -58,8 +58,6 @@ async function mouseEnterHandler(
 
   popoverInner.dataset.contentType = contentType ?? undefined
 
-  let uniquePrefix = ""
-
   switch (contentTypeCategory) {
     case "image":
       const img = document.createElement("img")
@@ -86,14 +84,11 @@ async function mouseEnterHandler(
       const elts = [...html.getElementsByClassName("popover-hint")]
       if (elts.length === 0) return
 
-      // We generate a unique prefix for each popover.
-      uniquePrefix = `popover-${Math.random().toString(36).substr(2, 9)}-`
-
-
+      // elts.forEach((elt) => popoverInner.appendChild(elt))
       elts.forEach((elt) => {
         const clonedElt = elt.cloneNode(true) as Element
+        const uniquePrefix = `popover-${Math.random().toString(36).substr(2, 9)}-`
         
-        // We then update all IDs within the cloned elements (including nested elements) by prepending this unique prefix.
         clonedElt.querySelectorAll('[id]').forEach((el) => {
           el.id = uniquePrefix + el.id
         })
@@ -109,12 +104,16 @@ async function mouseEnterHandler(
   setPosition(popoverElement)
   link.appendChild(popoverElement)
 
+  // if (hash !== "") {
+  //   const heading = popoverInner.querySelector(hash) as HTMLElement | null
+  //   if (heading) {
+  //     // leave ~12px of buffer when scrolling to a heading
+  //     popoverInner.scroll({ top: heading.offsetTop - 12, behavior: "instant" })
+  //   }
+  // }
   if (hash !== "") {
-    const originalId = hash.substring(1)  // Remove the '#' from the hash to get the original ID
-    const newId = uniquePrefix + originalId // Reconstructs the new ID by adding the uniquePrefix defined earlier
-    const heading = popoverInner.querySelector(`#${newId}`) as HTMLElement | null
+    const heading = popoverInner.querySelector(`[id="${hash.substring(1)}"]`) as HTMLElement | null
     if (heading) {
-      // leave ~12px of buffer when scrolling to a heading
       popoverInner.scroll({ top: heading.offsetTop - 12, behavior: "instant" })
     }
   }
