@@ -18,8 +18,8 @@ L'histoire de l'hôtel de Hilbert possède plusieurs variantes, posant des [déf
 - Une vidéo d'[El Jj](https://www.youtube.com/watch?v=N_cDA6tF-40)
 
 Cette histoire, loin d'être une simple anecdote amusante, touche en fait à un phénomène caractéristique des ensembles infinis, et la technique qu'elle illustre est une idée qui intervient dans de nombreuses preuves mathématiques. Dans la suite de cette page, on va présenter deux résultats dont la démonstration repose fondamentalement sur la belle idée de notre concierge :
-- une caractérisation des ensembles infinis ; [[infini#^eb987a]]
-- et le théorème de Cantor-Bernstein. [[infini#^16752a]]
+- [[infini#^eb987a|une caractérisation des ensembles infinis]] ;
+- et le [[infini#^16752a|théorème de Cantor-Bernstein]].
 
 
 Cela sera aussi l'occasion de définir plus rigoureusement ce que l'on entend par "ensemble infini", et de voir que tous les ensembles infinis ne sont pas forcément de la même taille ...
