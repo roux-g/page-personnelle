@@ -18,7 +18,7 @@ L'histoire de l'hôtel de Hilbert possède plusieurs variantes, posant des [déf
 - Une vidéo d'[El Jj](https://www.youtube.com/watch?v=N_cDA6tF-40)
 
 Cette histoire, loin d'être une simple anecdote amusante, touche en fait à un phénomène caractéristique des ensembles infinis, et la technique qu'elle illustre est une idée qui intervient dans de nombreuses preuves mathématiques. Dans la suite de cette page, on va présenter deux résultats dont la démonstration repose fondamentalement sur la belle idée de notre concierge :
-- [[infini#^eb987a|une caractérisation des ensembles infinis]] ;
+- [[infini#^eb987a|une caractérisation des ensembles infinis]] due à Dedekind ;
 - et le [[infini#^16752a|théorème de Cantor-Bernstein]].
 
 
@@ -51,8 +51,9 @@ C'est là que les choses intéressantes commencent : rien n'empêche en effet de
 
 ^6f430a
 
-**Deux exemples**
-- Avec cette définition, $\mathbb{N}$ et $\mathbb{Z}$ ont même cardinal ! En effet, on peut mettre les éléments de $\mathbb{N}$ en correspondance 2 à 2 avec ceux de $\mathbb{Z}$ de la manière suivante :
+**Quelques exemples**
+- Avec cette définition, $\mathbb{N}$ et $\mathbb{N}^\ast$ ont même cardinal ! C'est en fait exactement ce qu'illustre l'histoire de l'hôtel de l'infini : en "relogeant" tous les entiers chez l'entier d'à côté, c'est-à-dire en considérant la fonction $n\mapsto n+1$, on réalise une bijection entre $\mathbb{N}$ et $\mathbb{N}^\ast$.
+- Encore mieux : $\mathbb{N}$ et $\mathbb{Z}$ ont même cardinal. En effet, on peut mettre les éléments de $\mathbb{N}$ en correspondance 2 à 2 avec ceux de $\mathbb{Z}$ de la manière suivante :
 $$
 \begin{array}{ccr}
 0 & \mapsto & 0 \\
@@ -74,7 +75,7 @@ x & \mapsto & \tan(x)
 $$
 réalise une bijection entre ces deux ensembles.
 
-Dans ces deux exemples, on observe un phénomène intrigant : on a construit à chaque fois une bijection entre un ensemble ($\mathbb{Z}$, $\mathbb{R}$) et une partie de lui-même ($\mathbb{N}$, $\left] -\frac{\pi}{2}, \frac{\pi}{2}\right[$). Il se trouve que cela reflète en réalité une propriété plus générale : un ensemble est infini si et seulement on peut le mettre en bijection avec une partie stricte de lui-même.
+Dans ces exemples, on observe un phénomène intrigant : on a construit à chaque fois une bijection entre un ensemble ($\mathbb{Z}$, $\mathbb{R}$) et une partie de lui-même ($\mathbb{N}$, $\left] -\frac{\pi}{2}, \frac{\pi}{2}\right[$). Il se trouve que cela reflète en réalité une propriété plus générale : un ensemble est infini si et seulement on peut le mettre en bijection avec une partie stricte de lui-même.
 
 > [!thm] Théorème (caractérisation des ensembles infinis)
 > Soit $A$ un ensemble. Alors $A$ est infini si et seulement il existe une partie $B\subset A$, avec $B\neq A$, telle que $A$ est en bijection avec $B$.
@@ -125,6 +126,9 @@ Dans ces deux exemples, on observe un phénomène intrigant : on a construit à 
 > Notons que, puisque $f:A\to B$, on a $x_1 = f(x_0) \in B$, et en particulier $x_1 \neq x_0$. Puisque $f$ est injective, on en déduit que $f(x_1)\neq f(x_0)$, i.e. $x_2 \neq x_1$ ; et bien sûr $x_2 \neq x_0$ puisque $x_2 \in B$ et que $x_0 \notin B$. En répétant cela, on voit que les $x_n$ sont tous deux à deux distincts (on laisse le soin au lecteur motivé de le démontrer proprement par récurrence ...).
 > Ainsi, on a construit une suite $(x_n)$ d'éléments deux à deux distincts de $A$ ; d'après le lemme, $A$ est donc infini !
 
+Cette caractérisation des ensembles infinis est due au mathématicien allemand Richard Dedekind, qui la proposa en 1888 comme définition d'un ensemble infini. Il s'agissait de la première fois que quelqu'un proposait une définition de l'infini ne faisant pas intervenir les entiers naturels : jusqu'alors, l'approche courante consistait à définir un ensemble infini comme nous l'avons fait au début de cette page, en disant que c'est un ensemble qui n'est en bijection avec aucun des $\llbracket 1, n \rrbracket$.
+
+Remarque : il y a [quelques subtilités](https://en.wikipedia.org/wiki/Dedekind-infinite_set) autour de l'équivalence entre ces deux définitions de l'infini, liées à l'utilisation ou non de l'axiome du choix.
 
 ## Quand un infini est plus petit qu'un autre
 
@@ -147,7 +151,7 @@ On va en profiter pour refaire le même coup que dans la partie précédente, en
 **Exemples**
 - Toute inclusion $A\subset B$ d'un ensemble dans un autre peut aussi être vue comme une injection (à savoir, $f:A\to B$ qui à tout $x$ de $A$ associe ... eh bien, $x$). Par conséquent, avec cette définition, si $A\subset B$ alors le cardinal de $A$ est inférieur ou égal à celui de $B$ (encore heureux !!).
 - Le cardinal de $[0,1[$ est inférieur ou égal à celui de $\mathbb{N}^\mathbb{N}$, l'ensemble des suites d'entiers.\
-En effet, on peut considérer $f$ l'application qui à chaque réel de $[0,1[$ associe la suite de ses décimales (où l'on convient, pour éviter de toute ambiguïté, de ne jamais écrire une développement décimal finissant en "99999..." : par exemple, au nombre 0,35, on associera la suite 3, 5, 0, 0, 0, etc., et non la suite 3, 4, 9, 9, 9, 9, ...). Puisque la suite des décimales d'un réel de $[0,1[$ caractérise complètement ce réel, l'application $f$ ainsi définie est injective.
+En effet, on peut considérer $f$ l'application qui à chaque réel de $[0,1[$ associe la suite de ses décimales (où l'on convient, pour éviter de toute ambiguïté, de ne jamais écrire un développement décimal finissant en "99999..." : par exemple, au nombre 0,35, on associera la suite 3, 5, 0, 0, 0, etc., et non la suite 3, 4, 9, 9, 9, 9, ...). Puisque la suite des décimales d'un réel de $[0,1[$ caractérise complètement ce réel, l'application $f$ ainsi définie est injective.
 
 
 On s'est ainsi doté d'une définition permettant de comparer les cardinaux d'ensembles infinis. Notons au passage que cette définition est cohérente avec [[infini#^6f430a|la définition donnée plus tôt]] pour l'égalité entre cardinaux : si l'on a simultanément $Card(A)\leq Card(B)$ et $Card(B)\leq Card(A)$, cela signifie qu'il existe une injection de $A$ dans $B$ et une injection de $B$ dans $A$, et donc que, euh ... un instant ...
@@ -171,7 +175,7 @@ On a en fait mis le doigt sur un point pas du tout trivial pour les ensembles in
 > Posons $C=g(B)$. Alors les ensembles $B$ et $C$ sont en bijection l'un avec l'autre, via
 > $$
 > \begin{array}{rlc}
-> B & \to & C=f(B)\\
+> B & \to & C=g(B)\\
 > x & \mapsto & g(x)
 > \end{array}
 > $$
