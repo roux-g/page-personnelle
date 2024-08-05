@@ -18,6 +18,8 @@ On formalise ce concept de somme infinie à l'aide de la notion de limite ; la f
 > \sum_{k=1}^{n} \dfrac{(-1)^{k-1}}{k} \underset{n\to +\infty}{\longrightarrow} \ln(2).
 > $$
 
+^648def
+
 ## Démonstration
 
 On va procéder en deux grandes étapes.
