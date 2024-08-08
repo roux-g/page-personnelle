@@ -21,7 +21,7 @@ L'histoire de l'hôtel de Hilbert possède plusieurs variantes, posant des [déf
 <img src="hotel.png" style="display: block; margin-left: auto; margin-right: auto; max-width: 400px;">
 -->
 
-![[hotel.png | center]]
+![[img_hotel.png| center]]
 
 
 

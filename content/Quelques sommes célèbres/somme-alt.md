@@ -86,6 +86,22 @@ $$
 \sum_{k=1}^{n} \dfrac{(-1)^{k-1}}{k} = \ln(2) -  \int_{0}^1 \dfrac{(-x)^n}{1+x} \, dx. \ \underset{n\to +\infty}{\longrightarrow} \  \ln(2)
 $$
 CQFD !
+
+## Généralisation
+
+En reprenant tout le raisonnement que nous venons de faire, mais en intégrant entre 0 et $x$ plutôt qu'entre 0 et 1, on peut en fait montrer ce résultat plus fort  :
+$$
+\forall x\in ]-1,1[, \ \quad \sum_{k=1}^{n} \dfrac{(-1)^{k-1}}{k}x^k = \ln(1+x) -  \int_{0}^x \dfrac{(-t)^n}{1+t} \, dt \ \underset{n\to +\infty}{\longrightarrow} \  \ln(1+x).
+$$
+Autrement dit, on obtient cette belle écriture de $\ln(1+x)$, ce que l'on appelle un *développement en série entière* :
+
+> [!thm] Théorème
+> $$
+> \forall x\in ]-1,1[, \quad \ln(1+x) \ = \ \sum_{k=1}^{+\infty} \dfrac{(-1)^{k-1}}{k}x^k \ = \ x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \ldots
+> $$
+
+Cette série porte le nom de *série de Mercator*, en hommage au mathématicien allemand Nicholas Mercator qui découvrit cette formule dans la seconde moitié du XVIIe siècle.
+
 ## Et si l'on changeait l'ordre des termes ?
 
 La somme que l'on vient d'étudier est d'un genre assez particulier : si elle tend vers une valeur finie, c'est parce que les termes positifs et les négatifs se "compensent les uns les autres". Sans cette alternance des signes, elle tendrait en fait vers $+\infty$ :
