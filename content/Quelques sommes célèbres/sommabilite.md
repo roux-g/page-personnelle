@@ -55,7 +55,7 @@ $$
 
 Ainsi, une série peut être convergente au sens de Cesàro, mais pas convergente au sens classique du terme. En revanche, l'implication réciproque est vraie :
 
-> [!thm] Théorème de la moyenne de Cauchy (1821)
+> [!thm] Théorème de Cesàro (1821)
 > Si une série converge vers $\ell$ au sens classique, alors elle converge aussi vers $\ell$ au sens de Cesàro.
 
 > [!dem]- Démonstration
@@ -581,3 +581,8 @@ $$
 |E(x)| \leq C \sum_{k=1}^{\infty} (x^k -x^{k+1})\left|h\left(x^k\right)-Q\left(x^k\right)\right| \ \underset{x\to 1^-}{\longrightarrow} \  \int_0^1|h(t)-Q(t)| \mathrm{dt} \leq \frac{\varepsilon}{2}
 $$
 et donc $|E(x)|\leq \varepsilon$ pour tout $x$ suffisamment proche de $1$. Cela prouve que $E(x)\ \underset{x\to 1^-}{\longrightarrow} \ 0$, et conclut la preuve.
+
+## Bibliographie
+
+- Choimet, D.; Queffélec, H. *Analyse mathématique - grands théorèmes du vingtième siècle*; Calvage & Mounet, 2009
+- Korevaar, J. *Tauberian Theory : a Century of Developments*; Springer, 2004
