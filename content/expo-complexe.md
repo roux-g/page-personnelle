@@ -43,9 +43,9 @@ $$
 $$
 Or, multiplier par $i$, cela a pour effet d'effectuer une rotation de $\frac{\pi}{2}$ dans le plan complexe. Cela signifie que, en tout point du chemin décrit par $f$, la vitesse de déplacement est orthogonale à la position. Cela est caractéristique d'un cercle !
 
-<!--
+%%
 <img src="expo_complexe.png" style="display: block; margin-left: auto; margin-right: auto; max-width: 400px;">
--->
+%%
 
 ![[img_expo_complexe.png| center]]
 
@@ -88,9 +88,7 @@ Pour cela, commençons par constater que, par calcul ou par lecture graphique su
 - $\left| 1+ i\dfrac{\theta}{n} \right| = \sqrt{ 1+ \dfrac{\theta^{2}}{n^{2}}}$
 - $\arg\left( 1+ i\dfrac{\theta}{n} \right) = \arctan\left( \dfrac{\theta}{n} \right)$.
 
-<!--
-<img src="expo_complexe_polaire.png" style="display: block; margin-left: auto; margin-right: auto; max-width: 400px;">
--->
+
 
 ![[img_expo_complexe_polaire.png| center]]
 
@@ -214,7 +212,7 @@ On va commencer par un résultat fondamental que l'on ne cherchera pas à démon
 
 ^thm-fonctions-entieres
 
-<!--
+%%
 > [!thm] Corollaire
 > Soit $f$ une fonction entière. Alors, pour tout $a\in \mathbb{C}$, on a :
 > $$
@@ -230,17 +228,18 @@ On va commencer par un résultat fondamental que l'on ne cherchera pas à démon
 > $$
 > En remplaçant $z$ par $z-a$, on obtient alors la formule souhaitée (puisque $g(z-a)=f(z)$).
 
--->
+%%
+
 
 ### Unicité du prolongement
 
 Commençons par régler la question de l'unicité à l'aide du résultat suivant, parfois appelé "Principe du prolongement analytique" ou "Théorème d'identité" :
 
-<!--
+%%
 est une conséquence d'un autre résultat, le *principe des zéros isolés*.
--->
+%%
 
-<!--
+%%
 
 > [!thm] Théorème (unicité du prolongement)
 > Soient $f, g: \mathbb{C} \to \mathbb{C}$ deux fonctions holomorphes.\
@@ -254,7 +253,7 @@ est une conséquence d'un autre résultat, le *principe des zéros isolés*.
 > 
 > 
 
--->
+%%
 
 > [!thm] Théorème (unicité du prolongement)
 > Soient $f, g: \mathbb{C} \to \mathbb{C}$ deux fonctions holomorphes qui coïncident sur $\mathbb{R}$, i.e. telles que $f(x)=g(x)$ pour tout $x\in \mathbb{R}$.\

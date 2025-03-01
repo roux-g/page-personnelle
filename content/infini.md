@@ -17,9 +17,7 @@ L'histoire de l'hôtel de Hilbert possède plusieurs variantes, posant des [déf
 - Une vidéo de la série [Voyage au pays des maths](https://www.youtube.com/watch?v=o79bss3Hc60)
 - Une vidéo d'[El Jj](https://www.youtube.com/watch?v=N_cDA6tF-40)
 
-<!--
-<img src="hotel.png" style="display: block; margin-left: auto; margin-right: auto; max-width: 400px;">
--->
+
 
 ![[img_hotel.png| center]]
 

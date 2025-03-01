@@ -603,19 +603,24 @@ img[alt*="center"] {
 
 :root[saved-theme="dark"] {
   --callout-blue :  rgba(211, 209, 255, 0.6);
-  --callout-blueBG :  rgba(0, 0, 255, 0.6);
+  --callout-blueBG :  rgba(0, 0, 66, 0.6);
+  // --callout-blueBG :  rgba(0, 0, 255, 0.6);
 
   --callout-purple: rgba(227, 209, 255, 0.6);
-  --callout-purpleBG:  rgba(102, 0, 255, 0.6) ;
+  --callout-purpleBG:  rgba(27, 0, 67, 0.6) ;
+  // --callout-purpleBG:  rgba(102, 0, 255, 0.6) ;
 
   --callout-green: rgba(194, 255, 195, 0.6);
-  --callout-greenBG: rgba(0, 139, 5, 0.6);
+  --callout-greenBG: rgba(0, 45, 2, 0.6);
+  // --callout-greenBG: rgba(0, 139, 5, 0.6);
 
   --callout-red: rgba(255, 201, 201, 0.6);
-  --callout-redBG: rgba(255, 0, 0, 0.6);
+  --callout-redBG: rgba(74, 0, 0, 0.6);
+  // --callout-redBG: rgba(255, 0, 0, 0.6);
 
   --callout-yellow: rgba(255, 255, 185, 0.6);
-  --callout-yellowBG: rgba(255, 238, 1, 0.6);
+  --callout-yellowBG: rgba(93, 87, 0, 0.6);
+  // --callout-yellowBG: rgba(255, 238, 1, 0.6);
 }
 
 :root[saved-theme="light"] {

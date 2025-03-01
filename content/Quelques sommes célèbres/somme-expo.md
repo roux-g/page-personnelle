@@ -80,7 +80,8 @@ f_n(x)=e^x g_n(x) = e^x - e^x \int_0^x \dfrac{t^n}{n!}e^{-t} dt. \qquad (*)
 $$
 
 
-<!--
+
+%%
 > [!rem]- Remarque
 > L'égalité que l'on vient d'établir se réécrit aussi :
 > $$
@@ -105,13 +106,11 @@ $$
 > et on retrouve bien la formule obtenue plus haut avec l'exponentielle (puisque toutes les dérivées successives de l'exponentielle sont égales à elle-même).
 > 
 > La formule de Taylor-Lagrange avec reste intégral se démontre par exemple en raisonnant par récurrence, et en utilisant une intégration par parties pour obtenir l'hérédité.
--->
 
-<!--
  $$
 > > f(x)=\sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k+\int_a^x \frac{(x-t)^n}{n!} f^{(n+1)}(t) \mathrm{d} t
 > > $$
--->
+%%
 
 
 Pour conclure, il ne reste donc plus qu'à justifier que l'intégrale dans l'égalité $(*)$ tend vers 0 :
@@ -254,7 +253,7 @@ Comme pour le développement en série entière de l'exponentielle, ces deux for
 
 Madhava décrivait le développement en série entière du sinus en ces termes (traduits en anglais) :
 
-> "Multiply the arc by the square of the arc, and take the result of repeating that (any number of times). Divide by the squares of the successive even numbers (such that current is multiplied by previous) increased by that number and multiplied by the square of the radius. Place the arc and the successive results so obtained one below the other, and subtract each from the one above. These together give the [jiva](https://en.wikipedia.org/wiki/Jy%C4%81,_koti-jy%C4%81_and_utkrama-jy%C4%81 "Jyā, koti-jyā and utkrama-jyā") [sine]"
+> "The arc is to be repeatedly multiplied by the square of itself and is to be divided [in order] by the square of each even number increased by itself and multiplied by the square of the radius. The arc and the terms obtained by these repeated operations are to be placed in sequence in a column, and any last term is to be subtracted from the next above, the remainder from the term then next above, and so on, to obtain the jya (sine) of the arc."
 
 Les travaux de Madhava n'ont vraisemblablement jamais atteint l'Europe ; il aura fallu attendre le XVIIe siècle pour que les mathématiciens européens redécouvrent indépendamment cette même formule, et l'énoncent avec le formalisme que l'on connaît aujourd'hui.
 
