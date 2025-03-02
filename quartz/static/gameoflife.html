@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Conway's Game of Life</title> -->
+    <style>
+        canvas { border: 1px solid black; background-color: black; }
+        button { margin: 5px; padding: 10px; font-size: 16px; }
+        .button-container { display: flex; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+        .button-container button { display: flex; align-items: center; gap: 5px; }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- <h1 style="color:white; text-align:center;">Conway's Game of Life</h1> -->
+    <canvas id="gameCanvas" width="700" height="500" style="display:block; margin: 0 auto;"></canvas>
+    <div class="button-container">
+        <button onclick="step()"><i class="fas fa-step-forward"></i> Pas à pas</button>
+        <button onclick="play()"><i class="fas fa-play"></i> Lecture</button>
+        <button onclick="pause()"><i class="fas fa-pause"></i> Pause</button>
+        <button onclick="reset()"><i class="fas fa-redo"></i> Reset</button>
+        <button onclick="randomize()"><i class="fas fa-random"></i> Aléatoire</button>
+        <button onclick="placePattern()"><i class="fas fa-shapes"></i> Motifs</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const gridWidth = 70;
+        const gridHeight = 50;
+        const cellSize = canvas.width / gridWidth;
+        let grid = Array.from({ length: gridHeight }, () => Array(gridWidth).fill(0));
+        let playing = false;
+        let interval;
+
+        let patternIndex = 0;
+
+        const patterns = [
+            // Gosper Glider Gun
+            { name: 'Gosper Glider Gun', 
+                offsetX: 3,
+                offsetY: 3,
+                cells: [
+                [1, 5], [1, 6], [2, 5], [2, 6],
+                [11, 5], [11, 6], [11, 7],
+                [12, 4], [12, 8],
+                [13, 3], [13, 9],
+                [14, 3], [14, 9],
+                [15, 6],
+                [16, 4], [16, 8],
+                [17, 5], [17, 6], [17, 7],
+                [18, 6],
+                [21, 3], [21, 4], [21, 5],
+                [22, 3], [22, 4], [22, 5],
+                [23, 2], [23, 6],
+                [25, 1], [25, 2], [25, 6], [25, 7],
+                [35, 3], [35, 4], [36, 3], [36, 4]
+            ]},
+            
+            // The Weekender (A beaituful symmetrical pattern)
+            { name: 'Weekender',
+                offsetX: 32,
+                offsetY: 21,
+                cells: [
+                [0, 2], [0, 3], [1, 1], [1, 4],
+                [2, 0], [2, 5], [3, 0], [3, 5],
+                [4, 2], [4, 3]
+            ]},
+
+            // Quasar seed (a pattern that grows into a quasar oscillator)
+            { name: 'Breeder',
+                offsetX: 33,
+                offsetY: 18,
+                cells: [
+                [1, 5], [2, 5], [3, 5],
+                [2, 6],
+                [0, 8], [4, 8],
+                [1, 9], [2, 9], [3, 9]
+            ]},
+
+                        // R-pentomino (a tiny seed that evolves into chaotic patterns)
+            { name: 'R-pentomino',
+                offsetX: 33,
+                offsetY: 22,
+                cells: [
+                // Drawn as:
+                //  . X X
+                //  X X .
+                //  . X .
+                [0, 1], [0, 2],
+                [1, 0], [1, 1],
+                [2, 1]
+            ]},
+
+                        // Puffer 1
+            { name: 'Puffer 1',
+                offsetX: 15,
+                offsetY: 10,
+                cells: [
+                // A simple puffer train that leaves a trail of debris
+                [10, 10], [10, 11], [10, 12], [10, 16], [10, 17], [10, 18], [9, 2], [9, 9], [9, 12], [9, 16], [9, 19], [9, 26], [8, 1], [8, 2], [8, 3], [8, 9], [8, 13], [8, 15], [8, 19], [8, 25], [8, 26], [8, 27], [7, 0], [7, 1], [7, 3], [7, 13], [7, 15], [7, 25], [7, 27], [7, 28], [6, 0], [6, 1], [6, 2], [6, 8], [6, 9], [6, 13], [6, 15], [6, 19], [6, 20], [6, 26], [6, 27], [6, 28], [5, 1], [5, 2], [5, 11], [5, 13], [5, 15], [5, 17], [5, 26], [5, 27], [4, 9], [4, 11], [4, 13], [4, 15], [4, 17], [4, 19], [3, 13], [3, 15], [2, 11], [2, 13], [2, 15], [2, 17], [1, 10], [1, 11], [1, 13], [1, 15], [1, 17], [1, 18], [0, 11], [0, 13], [0, 15], [0, 17]
+            ]},
+
+                                    // Puffer 2
+            { name: 'Puffer 2',
+                offsetX: 30,
+                offsetY: 10,
+                cells: [
+                // A simple puffer train that leaves a trail of debris
+                [9, 0], [11, 0], [8, 1], [11, 1], [7, 2], [8, 2], [6, 3], [10, 3], [5, 4], [6, 
+4], [7, 4], [9, 4], [2, 5], [3, 5], [1, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [17, 6], [18, 6], [19, 6], [20, 6], [26, 6], [29, 6], [0, 7], [4, 7], [17, 7], [21, 7], [25, 7], [0, 8], [6, 8], [7, 8], [17, 8], [25, 8], [29, 8], [0, 9], [1, 9], [2, 9], [6, 9], [7, 9], [8, 9], [9, 9], [18, 9], [21, 9], [25, 9], [26, 9], [27, 9], [28, 9], [1, 10], [9, 10], [1, 11], [2, 11], [22, 11], [23, 11], [1, 12], [3, 12], [22, 12], [23, 12], [1, 13], [2, 13], [5, 13], [6, 13], [8, 13], [17, 13], [19, 13], [22, 13], [23, 13], [2, 14], [4, 14], [5, 14], [6, 14], [8, 14], [12, 14], [14, 14], [15, 14], [16, 14], [17, 14], [19, 14], [22, 14], [23, 14], [9, 15], [10, 15], [12, 15], [14, 15], [15, 15], [18, 15], [22, 15], [23, 15], [27, 15], [28, 15], [29, 15], [4, 16], [5, 16], [6, 16], [7, 16], [8, 16], [9, 16], [11, 16], [12, 16], [16, 16], [17, 16], [18, 16], [19, 16], [22, 16], [23, 16], [27, 16], [28, 16], [29, 16], [5, 17], [10, 17], [11, 17], [12, 17], [19, 17], [22, 17], [23, 17], [27, 17], [28, 17], [29, 17], [6, 18], [7, 18], [13, 18], [14, 18], [17, 18], [18, 18], [22, 18], [23, 18], [7, 19], [10, 19], [16, 19], [17, 19], [18, 19], [19, 19], [22, 19], [23, 19], [8, 20], [10, 20], [12, 20], [13, 20], [19, 20], [22, 20], [23, 20], [22, 21], [23, 21], [18, 23], [21, 23], [25, 23], [26, 23], [27, 23], [28, 23], [17, 24], [25, 24], [29, 24], [17, 25], [21, 25], [25, 25], [17, 26], [18, 26], [19, 26], [20, 26], [26, 26], [29, 26]
+            ]}
+        ];
+
+        canvas.addEventListener('click', (e) => {
+            const x = Math.floor(e.offsetX / cellSize);
+            const y = Math.floor(e.offsetY / cellSize);
+            grid[y][x] = grid[y][x] ? 0 : 1;
+            drawGrid();
+        });
+
+        function drawGrid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let y = 0; y < gridHeight; y++) {
+                for (let x = 0; x < gridWidth; x++) {
+                    ctx.fillStyle = grid[y][x] ? 'white' : 'black';
+                    ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                    ctx.strokeStyle = '#555';
+                    ctx.lineWidth = 0.5;
+                    ctx.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                }
+            }
+        }
+
+        function placePattern() {
+            reset();
+            const pattern = patterns[patternIndex % patterns.length];
+            // const offsetX = 30, offsetY = 20;
+            pattern.cells.forEach(([x, y]) => {
+                if (y + pattern.offsetY < gridHeight && x + pattern.offsetX < gridWidth) {
+                    grid[y + pattern.offsetY][x + pattern.offsetX] = 1;
+                }
+            });
+            patternIndex++;
+            drawGrid();
+        }
+
+
+        function step() {
+            const newGrid = grid.map(arr => [...arr]);
+            for (let y = 0; y < gridHeight; y++) {
+                for (let x = 0; x < gridWidth; x++) {
+                    let liveNeighbors = 0;
+                    for (let i = -1; i <= 1; i++) {
+                        for (let j = -1; j <= 1; j++) {
+                            if (i === 0 && j === 0) continue;
+                            const nx = (x + j + gridWidth) % gridWidth;
+                            const ny = (y + i + gridHeight) % gridHeight;
+                            liveNeighbors += grid[ny][nx];
+                        }
+                    }
+                    if (grid[y][x] && (liveNeighbors < 2 || liveNeighbors > 3)) {
+                        newGrid[y][x] = 0;
+                    } else if (!grid[y][x] && liveNeighbors === 3) {
+                        newGrid[y][x] = 1;
+                    }
+                }
+            }
+            grid = newGrid;
+            drawGrid();
+        }
+
+        function play() {
+            if (!playing) {
+                playing = true;
+                interval = setInterval(step, 50);
+            }
+        }
+
+        function pause() {
+            playing = false;
+            clearInterval(interval);
+        }
+
+        function reset() {
+            pause();
+            grid = Array.from({ length: gridHeight }, () => Array(gridWidth).fill(0));
+            drawGrid();
+        }
+
+        function randomize() {
+            grid = Array.from({ length: gridHeight }, () =>
+                Array.from({ length: gridWidth }, () => Math.random() > 0.7 ? 1 : 0)
+            );
+            drawGrid();
+        }
+
+        drawGrid();
+    </script>
+</body>
+</html>
