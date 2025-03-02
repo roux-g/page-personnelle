@@ -580,7 +580,17 @@ D'après ce que l'on a vu plus haut,
 $$
 |E(x)| \leq C \sum_{k=1}^{\infty} (x^k -x^{k+1})\left|h\left(x^k\right)-Q\left(x^k\right)\right| \ \underset{x\to 1^-}{\longrightarrow} \  \int_0^1|h(t)-Q(t)| \mathrm{dt} \leq \frac{\varepsilon}{2}
 $$
-et donc $|E(x)|\leq \varepsilon$ pour tout $x$ suffisamment proche de $1$. Cela prouve que $E(x)\ \underset{x\to 1^-}{\longrightarrow} \ 0$, et conclut la preuve.
+et donc $|E(x)|\leq \varepsilon$ pour tout $x$ suffisamment proche de $1$. Cela prouve que $E(x)\ \underset{x\to 1^-}{\longrightarrow} \ 0$, et conclut la preuve du théorème taubérien de Littlewood !
+
+
+Non content d'avoir prouvé que l'hypothèse "$(na_n)$ bornée" suffit à remonter de la convergence au sens d'Abel à la convergence classique, Littlewood prouva dans le même article que cette hypothèse est en fait *optimale*, au sens suivant :
+
+> [!thm] Théorème
+> Soit $(b_n)_{n\geq 1}$ une suite de réels strictement positifs tendant vers $+\infty$. Alors, il existe une suite $(a_n)_{n\geq 0}$ de complexes telle que :
+> - $|n a_n|\leq b_n$ pour tout $n\geq 1$,
+> - la série $\displaystyle\sum_{n\geq 0}a_n$  converge vers 0 au sens de Cesàro (et donc en particulier au sens d'Abel), mais ne converge pas au sens classique du terme.
+
+
 
 ## Bibliographie
 
